@@ -1,5 +1,13 @@
+{{!-- each button triggers an action, default event is a click --}}
+{{!-- <button {{action 'createPokemon' on='mouseOver'}}>CREATE</button> --}}
+<button {{action 'createPokemon'}}>CREATE</button>
+<button {{action 'updatePokemon'}}>UPDATE</button>
+<button {{action 'destroyPokemon'}}>DESTROY</button>
 <ul>
 {{#each model as |eachPokemon|}}
-  {{pokemon-snippet pokemon=eachPokemon}}
+{{!-- refer to 'updatePokemon' action in the Route --}}
+  {{pokemon-snippet pokemon=eachPokemon routeUpdatePokemon='updatePokemon'routeDestroyPokemon='destroyPokemon'}}
 {{/each}}
 </ul>
+
+{{outlet}}
